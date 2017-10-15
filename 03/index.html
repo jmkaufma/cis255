@@ -9,6 +9,7 @@
 		<title>Friends TV Show</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -49,6 +50,7 @@
 										<img src="http://4.bp.blogspot.com/-msEvWGKlygE/VnEcNFjkqkI/AAAAAAAAAns/GTh7ICZgCEw/s1600/Friends-together-with%2Btitle-friends.jpg" alt="Friends Character Image"/>
 									</span>
 								</section>
+							<canvas id="myChart" width="600" height="200"></canvas>
 						</div>
 					</div>
 
@@ -109,6 +111,33 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var chart = new Chart(ctx, {
+				// The type of chart we want to create
+				type: 'line',
+
+					// The data for our dataset
+					data: {
+						labels: ["Season 1", "Season 2", "Season 3", "Season 4", "Season 5", "Season 6", "Season 7", "Season 8", "Season 9", "Season 10"],
+						datasets: [{
+							label: "Viewers (in millions)",
+							backgroundColor: 'rgb(255, 99, 132)',
+							borderColor: 'rgb(255, 99, 132)',
+							data: [24.3, 29.4, 24.9, 24, 23.5, 20.7, 20.2, 24.5, 21.8, 22.8],
+						}]
+					},
+				options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero:true
+							}
+						}]
+					}
+				}
+				});
+			</script>
 
 	</body>
 </html>
